@@ -18,6 +18,9 @@ a release.
 ---
 
 ## [Unreleased]
+### Fixed
+- Fixed bug in `MaterializedPath::removeNode()` when removing entity that has cascade remove on its children, it was using `scheduleForDelete()` instead of `remove()` which is marked as internal and does not trigger cascade remove.
+
 ### Added
 - SoftDeleteable: `Gedmo\SoftDeleteable\Event\PreSoftDeleteEventArgs` and
   `Gedmo\SoftDeleteable\Event\PostSoftDeleteEventArgs` classes.
